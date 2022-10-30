@@ -153,6 +153,7 @@ Stripe Styles
     background: var(--clr-black);
     cursor: pointer;
     transition: var(--transition);
+    z-index: inherit;
   }
   .btn:hover {
     background: var(--clr-grey-5);
@@ -170,15 +171,16 @@ Stripe Styles
     z-index: -1;
   }
   .hero {
-    position: relative;
+    /* position: relative; */
     min-height: 100vh;
-    margin-top: -5rem;
+    /* margin-top: -2rem; */
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
     z-index: -1;
   }
   .hero-center {
+    margin-bottom: 10rem;;
     width: 90vw;
     max-width: var(--max-width);
     display: grid;
@@ -188,7 +190,8 @@ Stripe Styles
   .hero-info h1 {
     text-transform: none;
     max-width: 500px;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+    color: var(--clr-grey-1);
   }
   .hero-info p {
     max-width: 35em;
@@ -197,6 +200,8 @@ Stripe Styles
   .hero-images {
     display: none;
   }
+
+
   
 
   /* hero media query */
@@ -220,7 +225,7 @@ Stripe Styles
       justify-self: center;
     }
     .home-img {
-      width: 14rem;
+      width: 16rem;
       border-top-left-radius: 80px;
       border-bottom-right-radius: 80px;
       box-shadow: 12px 12px 5px 1px var(--clr-grey-1);
@@ -235,13 +240,13 @@ Stripe Styles
     }
     .hero-info h1 {
       max-width: 100%;
-      font-size: 4rem;
+      font-size: 5rem;
     }
     .hero-images {
       align-self: end;
     }
     .home-img {
-      width: 18rem;
+      width: 20rem;
     }
   }
   @media screen and (min-width: 1400px) {
@@ -251,4 +256,150 @@ Stripe Styles
   }
 
 
- 
+  /*
+=============== 
+Navbar
+===============
+*/
+nav {
+  position: relative;
+    background: var(--clr-white);
+    box-shadow: var(--light-shadow);
+  }
+  .nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  .nav-toggle {
+    font-size: 1.5rem;
+    color: var(--clr-primary-5);
+    background: transparent;
+    border-color: transparent;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .nav-toggle:hover {
+    color: var(--clr-primary-1);
+    transform: rotate(90deg);
+  }
+  .logo {
+    height: 40px;
+  }
+  .links a {
+    color: var(--clr-grey-3);
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: var(--transition);
+  }
+  .links a:hover {
+    background: var(--clr-primary-8);
+    color: var(--clr-primary-5);
+    padding-left: 1.5rem;
+  }
+  .social-icons {
+    display: none;
+    font-size: 1.5rem;;
+  }
+  .links-container {
+    height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  .show-container {
+    height: 10rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .links a{
+      font-size:  1.5rem;
+    } 
+  }
+
+
+  @media screen and (min-width: 800px) {
+    .nav-center {
+      max-width: 1170px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+    .nav-header {
+      padding: 0;
+    }
+    .nav-toggle {
+      display: none;
+    }
+    .links-container {
+      height: auto !important;
+    }
+    .links {
+      display: flex;
+    }
+    .links a {
+      padding: 0;
+      margin: 0 0.5rem;
+    }
+    .links a:hover {
+      padding: 0;
+      background: transparent;
+    }
+    .social-icons {
+      display: flex;
+    }
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: var(--clr-primary-5);
+      transition: var(--transition);
+    }
+    .social-icons a:hover {
+      color: var(--clr-primary-7);
+    }
+  }
+
+  /* 
+====== 
+SEARCHBAR
+======
+*/
+.search {
+  margin-top: 1rem;
+  padding-bottom: 0;
+
+}
+
+.search-form {
+  width: 75vw;
+  margin: 0 auto;
+  max-width: 500px;
+  background: var(--mainWhite);
+  padding: 2rem 2.5rem;
+  text-transform: capitalize;
+}
+
+.form-control label {
+  display: block;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  color: var(--clr-grey-1);
+}
+.form-control input {
+  width: 100%;
+  border-color: var(--clr-grey-2);
+  background: var(--mainBackground);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+}
