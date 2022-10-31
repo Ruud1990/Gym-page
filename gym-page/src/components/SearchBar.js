@@ -21,10 +21,13 @@ const SearchBar = () => {
     loadExercises();
   }, [])
   
+  function handleSubmit(e) {
+    e.preventDefault()
+  }
  
   return (
     <section className='hero'>
-      <form className='search-form'>
+      <form className='search-form' onSubmit={handleSubmit}>
         <div className='form-control'>
           <label htmlFor='name'>search your exercise</label>
         <div className='form-group'>
