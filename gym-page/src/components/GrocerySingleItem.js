@@ -23,15 +23,15 @@ const GrocerySingleItem = ({items, completeItem, removeItem, editItem}) => {
     }
 
   return items.map((item, index) => (
-    <>
+    
       <div className={item.isComplete ? 'item-row complete' : 'item-row'} key={index}>
          <div key={item.id} onClick={() => completeItem(item.id)}>{item.text}</div>
-      </div>
       <div className='item-icons'>
         <RiCloseCircleFill onClick={() => removeItem(item.id)} className='delete-icon'/>
-    <AiFillEdit onClick={() => setEdit({ id: item.id, value: item.text})} className='edit-icon'/>
+        <AiFillEdit onClick={() => setEdit({ id: item.id, value: item.text})} className='edit-icon'/>
       </div>
-    </>
+      </div>
+    
 
   ))
 }

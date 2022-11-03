@@ -44,9 +44,9 @@ const GroceryList = () => {
   }
 
   return (
-    <section className='hero'>
+    <section className='hero grocery-wrapper'>
+    <h2 className='grocery-title'>Grocery List</h2>
         <Link to="/groceryList"></Link>
-        <h2>Grocery List</h2>
         <GroceryForm onSubmit={addItem}/>
         <GrocerySingleItem items={items} completeItem={completeItem} removeItem={removeItem} editItem={editItem}/>
     </section>
