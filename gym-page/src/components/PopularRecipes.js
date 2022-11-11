@@ -39,11 +39,14 @@ const PopularRecipes = () => {
                     },
                     700: {
                         perPage: 2,
+                        gap: '2rem'
                     },
                 },
                 arrows: false,
                 drag: 'free',
-                gap: '4rem',
+                gap: '3rem',
+                padding: '2rem',
+                paddingBottom: '2rem',
             }}>
     {popular.map((recipe) => {
         return (

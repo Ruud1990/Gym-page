@@ -4,7 +4,8 @@ import { Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './routes/Home';
 import AboutUs from './routes/AboutUs';
-import RecipesList from './routes/RecipesList';
+import RecipesListHome from './routes/RecipesListHome';
+import RecipesListCousine from './routes/RecipesListCousine';
 import GroceryList from './routes/GroceryList';
 import Exercises from './routes/Exercises';
 import ExerciseDetail from './components/ExerciseDetail';
@@ -20,11 +21,14 @@ const App = () => {
       <Navbar />
       <Routes>
       <Route path='/' exact element={<Home />} />
-      <Route path='/Exercise/:id' element={<ExerciseDetail />} />
-      <Route path='/RecipesList' element={<RecipesList />} />
       <Route path='/GroceryList' element={<GroceryList />} />
       <Route path='/Exercises' element={<Exercises />} />
+      <Route path='/Exercise/:id' element={<ExerciseDetail />} />
       <Route path='/AboutUs' element={<AboutUs />} />
+      <Route path='/recipes' element={<RecipesListHome />} />
+      <Route path='/cousine/:type' element={<RecipesListCousine />} />
+      
+      
     </Routes>
     <Footer />
   </>
