@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {motion} from 'framer-motion';
 import {Link, useParams} from 'react-router-dom';
 import RecipesCategories from '../components/RecipesCategories';
+import SearchRecipes from '../components/SearchRecipes';
 
 
 const RecipesListCousine = () => {
@@ -10,7 +10,7 @@ const RecipesListCousine = () => {
 
     
     const getCousine = async (name) => {
-        const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_RECIPES_KEY}&type=${name}&number=7`);
+        const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_RECIPES_KEY}&type=${name}&number=12`);
         const recipes = await data.json();
         console.log(recipes.results);
         setCousine(recipes.results);
@@ -26,14 +26,15 @@ const RecipesListCousine = () => {
 
   return (
     <section className='hero'>
+    <SearchRecipes />
     <RecipesCategories />
     <div className="cousine-wrapper">
       {cousine.map((item) => {
         return (
-          <div className='recipe-card cousine' key={item.id}>
+          <Link className='recipe-card cousine' to={'/recipe/' + item.id} key={item.id}>
             <p>{item.title}</p>
             <img src={item.image} alt={item.title} />
-          </div>
+          </Link>
         )
       })}
     </div>

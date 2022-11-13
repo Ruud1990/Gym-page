@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import {Link} from 'react-router-dom';
 
 
 const PopularRecipes = () => {
@@ -39,25 +40,22 @@ const PopularRecipes = () => {
                     },
                     700: {
                         perPage: 2,
-                        gap: '2rem'
+                        gap: '1rem'
                     },
                 },
                 arrows: false,
                 drag: 'free',
                 gap: '3rem',
                 padding: '2rem',
-                paddingBottom: '2rem',
             }}>
     {popular.map((recipe) => {
         return (
         
 <SplideSlide key={recipe.id}>
-
-
-        <div className='recipe-card'>
-                <p>{recipe.title}</p>
-                <img src={recipe.image} alt={recipe.title} className='recipe-img'></img>
-            </div>
+    <Link className='recipe-card' to={'/recipe/' + recipe.id}>
+        <p>{recipe.title}</p>
+        <img src={recipe.image} alt={recipe.title} className='recipe-img'></img>
+    </Link>
 </SplideSlide>
 
         );

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import {Link} from 'react-router-dom';
 
 const KetoRecipes = () => {
   const [keto, setKeto] = useState([]);
@@ -34,20 +35,18 @@ const KetoRecipes = () => {
                     }
                 },
         arrows: false,
-        // pagination: false,
         drag: 'free',
         gap: '5rem',
+        padding: '2rem',
     }}>
 {keto.map((recipe) => {
 return (
 
 <SplideSlide key={recipe.id}>
-
-
-<div className='recipe-card'>
-        <p>{recipe.title}</p>
-        <img className='recipe-img' src={recipe.image} alt={recipe.title}></img>
-    </div>
+    <Link className='recipe-card' to={'/recipe/' + recipe.id}>
+      <p>{recipe.title}</p>
+      <img className='recipe-img' src={recipe.image} alt={recipe.title}></img>
+    </Link>
 </SplideSlide>
 
 );
