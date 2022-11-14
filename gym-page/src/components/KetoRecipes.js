@@ -29,15 +29,15 @@ const KetoRecipes = () => {
         breakpoints: {
                     940: {
                         perPage: 2,
+                        gap: '2rem',
                     },
                     700: {
-                      gap: '2rem',
+                      gap: '1rem',
                     }
                 },
         arrows: false,
         drag: 'free',
-        gap: '5rem',
-        padding: '2rem',
+        gap: '3rem',
     }}>
 {keto.map((recipe) => {
 return (

@@ -46,7 +46,6 @@ const PopularRecipes = () => {
                 arrows: false,
                 drag: 'free',
                 gap: '3rem',
-                padding: '2rem',
             }}>
     {popular.map((recipe) => {
         return (
