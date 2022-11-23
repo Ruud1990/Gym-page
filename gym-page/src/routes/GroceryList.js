@@ -1,10 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import GroceryForm from '../components/GroceryForm';
 import GrocerySingleItem from '../components/GrocerySingleItem';
 
+const getLocalItems = () => {
+  let list = localStorage.getItem('todoList');
+
+  if(list) {
+    return JSON.parse(localStorage.getItem('todoList'));
+  } else {
+    return [];
+  }
+}
+
 const GroceryList = () => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(getLocalItems());
 
   const addItem = (item) => {
     if(!item || /^\s*$/.test(item.text)) {
@@ -12,7 +22,6 @@ const GroceryList = () => {
     }
 
     const newItems = [item, ...items];
-
     setItems(newItems);
   }
 
@@ -43,12 +52,18 @@ const GroceryList = () => {
     setItems(updatedItems);
   }
 
+  useEffect(() => {
+    localStorage.setItem('todoList', JSON.stringify(items));
+  }, [items])
+
   return (
-    <section className='hero grocery-wrapper'>
+    <section className='hero'>
+    <div className='grocery-wrapper'>
     <h2 className='grocery-title'>Grocery List</h2>
         <Link to="/groceryList"></Link>
         <GroceryForm onSubmit={addItem}/>
         <GrocerySingleItem items={items} completeItem={completeItem} removeItem={removeItem} editItem={editItem}/>
+        </div>
     </section>
   )
 }
